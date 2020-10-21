@@ -7,9 +7,8 @@
 public class DBTester {
     
     public static void main (String [] args){
-        
-        DB.insertSQL("Insert into project values('g42','Moon',23456);");
-        DB.selectSQL("Select * from project");
+
+        DB.selectSQL("Select * from tblcustomer");
         
         do{
            String data = DB.getDisplayData();
@@ -20,12 +19,7 @@ public class DBTester {
            }   
         } while(true);
         
-        
-        DB.deleteSQL("Delete from project where project_no like 'g%';");
-        
-        DB.selectSQL("Select project_name from project");
-        
-        System.out.println("numberOfColumns="+DB.getNumberOfColumns());
+
         do{
            String data = DB.getData();
            if (data.equals(DB.NOMOREDATA)){
