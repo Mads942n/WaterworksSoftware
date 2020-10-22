@@ -1,8 +1,5 @@
-
-
-import java.util.Arrays;
-
 public class Calculations {
+
 
 
     public static String CustomerType(int CustomerID) {
@@ -11,12 +8,27 @@ public class Calculations {
 
         String CustomerTypeString = DB.getData();
 
-        return CustomerTypeString;
+        System.out.println(CustomerTypeString);
 
+        if(CustomerTypeString.equals("Agriculture")){
+            AgricultureCalc(CustomerID,CustomerTypeString);
+        }
+        else if(CustomerTypeString.equals("Industry")){
+            IndustryCalc(CustomerID,CustomerTypeString);
+        }
+        else if(CustomerTypeString.equals("Household")){
+            HouseholdCalc(CustomerID,CustomerTypeString);
+        }
+        else{
+            System.out.println("Invalid segment");
+        }
+
+        return CustomerTypeString;
     }
 
-    public static void AgricultureCalc() {
+    public static void AgricultureCalc(int CustomerID,String CustomerTypeString) {
 
+        double waterConsumption = WaterConsumption(CustomerID);
 
         //call water consumption
 
@@ -26,17 +38,22 @@ public class Calculations {
 
     }
 
-    public static void IndustryCalc() {
-
-
-    }
-
-    public static void HouseholdCalc() {
-
+    public static void IndustryCalc(int CustomerID,String CustomerTypeString) {
+        double waterConsumption = WaterConsumption(CustomerID);
 
     }
 
-    public static float[] WaterConsumption(int CustomerID) {
+    public static void HouseholdCalc(int CustomerID,String CustomerTypeString) {
+        double waterConsumption = WaterConsumption(CustomerID);
+
+    }
+
+    public static double TaxCalculation(double waterConsumption){
+
+        return 0;
+    }
+
+    public static double WaterConsumption(int CustomerID) {
 
         DB.selectSQL("Select fldWaterMeterID from tblWaterMeter where fldCustomerID = " + CustomerID);
 
@@ -45,12 +62,14 @@ public class Calculations {
             if (data.equals(DB.NOMOREDATA)){
                 break;
             }else{
-                System.out.print(data);
+                data = data.replace("\n", "");
+
             }
         } while(true);
 
-
+        return 1.1;
     }
+
 
 
     public static void InsertCalcToDB () {

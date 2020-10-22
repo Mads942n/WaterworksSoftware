@@ -58,7 +58,7 @@ public class ReadCardInfo {
      */
     public static String getReadingCardID(){
         boolean acceptingCardID = true;
-        String readingCardID = "";
+        String readingCardID;
 
         do{
             System.out.println("Enter reading card ID");
@@ -81,7 +81,7 @@ public class ReadCardInfo {
      */
     public static String getStaffCheckValue() {
         boolean staffCheck = true;
-        String staffCheckValue = "";
+        String staffCheckValue;
 
         do{
             System.out.print(
@@ -118,7 +118,7 @@ public class ReadCardInfo {
             }
             else{
                 System.out.println("Invalid amount of water meters");
-                in.next();
+                in.next();  // flush the scanner, so the old invalid input is not used again
             }
         }while(acceptingWaterMeterAmount);
 
