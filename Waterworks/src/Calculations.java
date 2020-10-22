@@ -29,7 +29,7 @@ public class Calculations {
     public static void AgricultureCalc(int CustomerID,String CustomerTypeString) {
 
         double waterConsumption = WaterConsumption(CustomerID);
-
+        double tax = TaxCalculation(waterConsumption,CustomerTypeString);
         //call water consumption
 
 
@@ -40,15 +40,17 @@ public class Calculations {
 
     public static void IndustryCalc(int CustomerID,String CustomerTypeString) {
         double waterConsumption = WaterConsumption(CustomerID);
+        double tax = TaxCalculation(waterConsumption,CustomerTypeString);
 
     }
 
     public static void HouseholdCalc(int CustomerID,String CustomerTypeString) {
         double waterConsumption = WaterConsumption(CustomerID);
+        double tax = TaxCalculation(waterConsumption,CustomerTypeString);
 
     }
 
-    public static double TaxCalculation(double waterConsumption){
+    public static double TaxCalculation(double waterConsumption, String CustomerTypeString){
 
         return 0;
     }
@@ -62,8 +64,7 @@ public class Calculations {
             if (data.equals(DB.NOMOREDATA)){
                 break;
             }else{
-                data = data.replace("\n", "");
-
+                System.out.print(data);
             }
         } while(true);
 
