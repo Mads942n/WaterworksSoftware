@@ -6,7 +6,7 @@
  */
 public class DBTester {
     
-    public static void main (String [] args){
+    public static void mainTest (String [] args){
 
         DB.selectSQL("Select * from tblCustomer");
         

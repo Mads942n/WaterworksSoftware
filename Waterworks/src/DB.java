@@ -132,7 +132,7 @@ public class DB {
         }
         if (!pendingData){
             terminated=true;
-            throw new RuntimeException("ERROR! No previous select, communication with the database is lost!"); 
+            throw new RuntimeException("ERROR! No previous select, communication with the database is lost!");
         }else if (!moreData){
            disconnect();
            pendingData=false;
