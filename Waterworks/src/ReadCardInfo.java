@@ -233,10 +233,20 @@ public class ReadCardInfo {
         return staffReading;
     }
 
+    /**
+     * Gets called from determineCardType, when the card
+     * is determined to be a staff card.
+     * @return true
+     */
     public static boolean handleStaffCard(){
         return true;
     }
 
+    /**
+     * Gets called from determineCardType, when the card
+     * is determined to be a customer card.
+     * @return false
+     */
     public static boolean handleCustomerCard(){
         return false;
     }
