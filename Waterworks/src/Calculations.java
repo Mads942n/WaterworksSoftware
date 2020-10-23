@@ -201,9 +201,7 @@ public class Calculations {
             }
         } while(true);
 
-        // erases all excess amount of spaces and newlines
-        // and adds commas between the data
-        sqlData = sqlData.replaceAll("\\s+", ",");
+        sqlData = sqlData.replaceAll("\\s+", ",");  // remove excess amount of spaces and seperate with comma
         sqlData = sqlData.substring(0,sqlData.length()-1);          // remove the last comma
 
         return sqlData;
