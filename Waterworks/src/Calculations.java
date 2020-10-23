@@ -53,7 +53,6 @@ public class Calculations {
      * @param ReadingCardID reading card id
      */
     public static void CustomerType(int CustomerID, int ReadingCardID) {
-
         DB.selectSQL("Select fldSegment from tblCustomer where fldCustomerID = " + CustomerID);
 
         String CustomerTypeString = DB.getData();
@@ -207,6 +206,8 @@ public class Calculations {
                     "values (%d,%s,%s,%s)",
                     readingCardID,waterMeterID[i],fldLastReading,fldCurrentReading
             );
+
+            System.out.printf("Inserting old readings into ReadingCardWaterMeter table from water meter ID: %s\n",waterMeterID[i]);
             DB.insertSQL(sql);
         }
     }
@@ -268,7 +269,7 @@ public class Calculations {
                     "update tblWaterMeter set fldCurrentPeriodReading = 0 where fldWaterMeterID = %s",
                     id,id
             );
-
+            System.out.printf("Updates the last period reading and resets water meter with ID: %s\n",id);
             DB.updateSQL(sql);
         }
     }
@@ -291,6 +292,7 @@ public class Calculations {
                 "select fldWaterMeterID from tblWaterMeter where fldCustomerID = %d",
                 customerID
         );
+
         DB.selectSQL(sql);
 
         do{
@@ -426,6 +428,7 @@ public class Calculations {
                 billingPriceInfo[WATER_PRICE_INDEX],
                 billingPriceInfo[WATER_TOTAL_PRICE_INDEX]
         );
+        System.out.println("Inserting calculation into billing table");
         DB.insertSQL(sql);
     }
 

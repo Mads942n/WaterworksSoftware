@@ -260,6 +260,8 @@ public class ReadCardInfo {
      * @param editValue the value used for the edit
      */
     public static void updateReadingCardTable(String fldReadingCardID,String fieldToEdit,String editValue){
+        System.out.println("Updating reading card table...");
+
         String sql = String.format(
                 "update tblReadingCard set %s = '%s' where fldReadingCardID = '%s'",
                 fieldToEdit,editValue,fldReadingCardID
@@ -277,6 +279,8 @@ public class ReadCardInfo {
     public static void updateWaterMeterTable(String[] waterMeter){
         final int WATERMETER_ID_INDEX = 0;
         final int WATERMETER_CURRENTREADING_INDEX = 1;
+
+        System.out.printf("Updating water meter with id: %s\n",waterMeter[WATERMETER_ID_INDEX]);
 
         String sql = String.format(
                 "update tblWaterMeter set fldCurrentPeriodReading = %s where fldWaterMeterID = %s",
