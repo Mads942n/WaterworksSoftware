@@ -3,6 +3,8 @@ import java.util.Locale;
 public class Calculations {
 
     /**
+     * This function is being called from the main menu, when
+     * calculations are needed.
      * Determines the costumer type and calls the calculations
      * of taxes and prices depending on the costumer segment
      * value.
