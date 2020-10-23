@@ -4,10 +4,15 @@ public class WaterworksMain {
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        start();
+        startSystem();
     }
 
-    public static void start() {
+    /**
+     * Starts the system by first providing the user a
+     * menu, which have different options. The program
+     * acts upon user input.
+     */
+    public static void startSystem() {
         boolean online = true;
         int input;
         String stringInput;
@@ -35,8 +40,7 @@ public class WaterworksMain {
                     case 4:
                     case 5:
                     case 6:
-                        Calculations.CustomerType(1);
-                        //Calculations.WaterConsumption(1);
+                        Calculations.acceptCustomerIdReadCardId();
                         break;
                     default:
                         System.out.println("Invalid input");

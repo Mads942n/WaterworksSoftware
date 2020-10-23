@@ -1,10 +1,51 @@
 import java.util.Locale;
+import java.util.Scanner;
+
 
 public class Calculations {
 
+    static Scanner in = new Scanner(System.in);
+
     /**
      * This function is being called from the main menu, when
-     * calculations are needed.
+     * calculations are needed. Gets a customer id and a reading
+     * card id corresponding to that customer.
+     */
+    public static void acceptCustomerIdReadCardId(){
+        String stringReadingCardID = ReadCardInfo.getReadingCardID();   // get reading card ID
+        int customerID = getCustomerID();                               // get customer id
+        int readingCardID = Integer.parseInt(stringReadingCardID);
+
+        CustomerType(customerID,readingCardID);                         // determine customer type
+    }
+
+    /**
+     * Gets the customer ID from user input
+     * @return the customer id
+     */
+    public static int getCustomerID() {
+        boolean acceptingID = true;
+        int customerID = 0;
+
+        do{
+            System.out.println("Enter customer ID");
+            if(in.hasNextInt()){
+                customerID = in.nextInt();
+
+                if(customerID > 0){
+                    acceptingID = false;
+                }
+            }
+            else{
+                System.out.println("Invalid customer ID input");
+            }
+
+        }while(acceptingID);
+
+        return customerID;
+    }
+
+    /**
      * Determines the costumer type and calls the calculations
      * of taxes and prices depending on the costumer segment
      * value.
